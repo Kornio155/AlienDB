@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AlienDB")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+addb316b1306fb054e79456a96902c2e65f1aa16")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2813f289018655679c16260df613d2aeb8bc0a8c")]
 [assembly: System.Reflection.AssemblyProductAttribute("AlienDB")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AlienDB")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

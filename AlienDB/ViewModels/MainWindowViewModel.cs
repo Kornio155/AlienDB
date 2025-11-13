@@ -125,20 +125,23 @@ public class MainWindowViewModel : ViewModelBase
         set => this.RaiseAndSetIfChanged(ref _selectedMovie, value);
     }
     
+    
+    public MovieModel TMP { get; set;  }
+    
     public ReactiveCommand<Unit, Unit> ShowDetailsCommand { get; }
 
     public MainWindowViewModel()
     {
         var canShow = this.WhenAnyValue(x => x.SelectedMovie)
             .Select(game => game != null);
-        ShowDetailsCommand = ReactiveCommand.Create(ShowDetails, canShow);
+        ShowDetailsCommand = ReactiveCommand.Create(ShowDetails);
     }
 
     private void ShowDetails()
     {
-        if (SelectedMovie != null)
+        if (TMP != null)
         {
-            Console.WriteLine($"Film: {SelectedMovie.Title} ({SelectedMovie.PolishTitle}), " +
+            /*Console.WriteLine($"Film: {SelectedMovie.Title} ({SelectedMovie.PolishTitle}), " +
                               $"rok: {SelectedMovie.Year}, " +
                               $"reżyser: {SelectedMovie.Director}, " +
                               $"scenariusz: {SelectedMovie.Scenario}, " +
@@ -148,8 +151,10 @@ public class MainWindowViewModel : ViewModelBase
                               $"główne postacie: {SelectedMovie.MainCharacters}, " +
                               $"statek: {SelectedMovie.Ship}. " +
                               $"Opis: {SelectedMovie.Description} " +
-                              $"Ciekawostka: {SelectedMovie.FunFuct}"
-            );
+                              $"Ciekawostka: {SelectedMovie.FunFuct}"*/
+           // );
+            SelectedMovie.Year =12345;
+            
         }
     }
 }
