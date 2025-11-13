@@ -24,5 +24,11 @@ build_property.EnableCodeStyleSeverity =
 [/home/kornel/RiderProjects/AlienDB/AlienDB/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[/home/kornel/RiderProjects/AlienDB/AlienDB/Views/CharacterWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/home/kornel/RiderProjects/AlienDB/AlienDB/Views/DetailWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [/home/kornel/RiderProjects/AlienDB/AlienDB/Views/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

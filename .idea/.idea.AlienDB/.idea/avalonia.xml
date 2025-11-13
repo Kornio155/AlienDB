@@ -3,6 +3,8 @@
   <component name="AvaloniaProject">
     <option name="projectPerEditor">
       <map>
+        <entry key="AlienDB/Views/CharacterWindow.axaml" value="AlienDB/AlienDB.csproj" />
+        <entry key="AlienDB/Views/DetailWindow.axaml" value="AlienDB/AlienDB.csproj" />
         <entry key="AlienDB/Views/MainWindow.axaml" value="AlienDB/AlienDB.csproj" />
       </map>
     </option>

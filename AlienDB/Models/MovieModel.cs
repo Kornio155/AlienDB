@@ -1,6 +1,8 @@
+using AlienDB.ViewModels;
+
 namespace AlienDB.Models;
 
-public class AlienModel
+public class MovieModel
 {
     public string Title { get; set; } = "";
     public string PolishTitle { get; set; } = "";
