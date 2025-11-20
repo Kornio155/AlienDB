@@ -1,13 +1,14 @@
-using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
+using AlienDB.ViewModels;
 
-namespace AlienDB.Views;
-
-public partial class CharacterWindow : Window
+namespace AlienDB.Views
 {
-    public CharacterWindow()
+    public partial class CharacterWindow : Window
     {
-        InitializeComponent();
+        public CharacterWindow()
+        {
+            InitializeComponent();
+            DataContext = new CharacterWindowViewModel(); 
+        }
     }
 }

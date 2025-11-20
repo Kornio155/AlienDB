@@ -1,9 +1,40 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        xmlns:vm="clr-namespace:AlienDB.ViewModels"
         x:Class="AlienDB.Views.CharacterWindow"
-        Title="CharacterWindow">
-    Welcome to Avalonia!
+        Title="CharacterWindow" Width="800" Height="450"
+        x:DataType="vm:CharacterWindowViewModel">
+
+    <Grid ColumnDefinitions="2*,3*" Margin="10">
+        <ListBox Grid.Column="0" ItemsSource="{Binding Characters}" SelectedItem="{Binding SelectedCharacter}" Margin="5">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel Grid.Column="1" Margin="10" Spacing="5">
+            <TextBlock Text="Imie i nazwisko: " FontWeight="Bold" FontSize="16"/>
+            <TextBlock Text="{Binding SelectedCharacter.Name}" FontWeight="Bold" FontSize="16"/>
+            <TextBlock Text="Film: "/>
+            <TextBlock Text="{Binding SelectedCharacter.Film}"/>
+            <TextBlock Text="Rola: "/>
+            <TextBlock Text="{Binding SelectedCharacter.Role}" />
+            <TextBlock Text="Aktor: "/>
+            <TextBlock Text="{Binding SelectedCharacter.Actor}" />
+            <TextBlock Text="Rasa: "/>
+            <TextBlock Text="{Binding SelectedCharacter.Race}" />
+            <TextBlock Text="Rok urodzenia: "/>
+            <TextBlock Text="{Binding SelectedCharacter.BirthYear}" />
+            <TextBlock Text="Funkcja w załodze: "/>
+            <TextBlock Text="{Binding SelectedCharacter.FunctionCrew}" TextWrapping="Wrap"/>
+            <TextBlock Text="Characterystyka: "/>
+            <TextBlock Text="{Binding SelectedCharacter.Profile}" TextWrapping="Wrap"/>
+            <TextBlock Text="Los: "/>
+            <TextBlock Text="{Binding SelectedCharacter.Fate}" TextWrapping="Wrap"/>
+            <TextBlock Text="Ciekawostka: "/>
+            <TextBlock Text="{Binding SelectedCharacter.FunFact}" TextWrapping="Wrap"/>
+        </StackPanel>
+    </Grid>
 </Window>

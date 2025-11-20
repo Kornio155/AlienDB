@@ -1,6 +1,6 @@
 namespace AlienDB.Models;
 
-public class CharaterModel
+public class CharacterModel
 {
     public string Name { get; set; } = "";
     public string Film { get; set; } = "";

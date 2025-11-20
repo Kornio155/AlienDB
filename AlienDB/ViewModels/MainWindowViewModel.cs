@@ -3,12 +3,14 @@ using System.Collections.ObjectModel;
 using System.Reactive;
 using System.Reactive.Linq;
 using AlienDB.Models;
+using AlienDB.Views;
 using ReactiveUI;
 
 namespace AlienDB.ViewModels;
 
 public class MainWindowViewModel : ViewModelBase
 {
+    
     public ObservableCollection<MovieModel> Movies { get; } = new()
     {
         new MovieModel
@@ -128,11 +130,13 @@ public class MainWindowViewModel : ViewModelBase
     
     public ReactiveCommand<Unit, Unit> ShowDetailsCommand { get; }
 
+    public ReactiveCommand<Unit, Unit> ShowCharacters { get; }
     public MainWindowViewModel()
     {
         var canShow = this.WhenAnyValue(x => x.SelectedMovie)
             .Select(game => game != null);
-        ShowDetailsCommand = ReactiveCommand.Create(ShowDetails);
+        ShowDetailsCommand = ReactiveCommand.Create(ShowDetails,  canShow);
+        ShowCharacters = ReactiveCommand.Create(Characters,   canShow);
     }
 
     private void ShowDetails()
@@ -170,4 +174,10 @@ public class MainWindowViewModel : ViewModelBase
         Details.Add(SelectedMovie.FunFuct);
     }
 
+    private void Characters()
+    {
+        var window = new CharacterWindow();
+        window.Show();
+    }
+    
 }
