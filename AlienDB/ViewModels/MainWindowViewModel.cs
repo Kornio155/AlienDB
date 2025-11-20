@@ -116,6 +116,7 @@ public class MainWindowViewModel : ViewModelBase
 
     };
 
+    public ObservableCollection<string> Details { get; } = new();
 
     private MovieModel? _selectedMovie;
 
@@ -124,9 +125,6 @@ public class MainWindowViewModel : ViewModelBase
         get => _selectedMovie;
         set => this.RaiseAndSetIfChanged(ref _selectedMovie, value);
     }
-    
-    
-    public MovieModel TMP { get; set;  }
     
     public ReactiveCommand<Unit, Unit> ShowDetailsCommand { get; }
 
@@ -139,22 +137,37 @@ public class MainWindowViewModel : ViewModelBase
 
     private void ShowDetails()
     {
-        if (TMP != null)
-        {
-            /*Console.WriteLine($"Film: {SelectedMovie.Title} ({SelectedMovie.PolishTitle}), " +
-                              $"rok: {SelectedMovie.Year}, " +
-                              $"reżyser: {SelectedMovie.Director}, " +
-                              $"scenariusz: {SelectedMovie.Scenario}, " +
-                              $"gatunek: {SelectedMovie.Genre}, " +
-                              $"czas trwania: {SelectedMovie.Duration}, " +
-                              $"ocena: {SelectedMovie.Rating}, " +
-                              $"główne postacie: {SelectedMovie.MainCharacters}, " +
-                              $"statek: {SelectedMovie.Ship}. " +
-                              $"Opis: {SelectedMovie.Description} " +
-                              $"Ciekawostka: {SelectedMovie.FunFuct}"*/
-           // );
-            SelectedMovie.Year =12345;
-            
-        }
+        Details.Clear();
+
+        if (SelectedMovie == null)
+            return;
+
+        Details.Add("Szczegóły:");
+        Details.Add(SelectedMovie.Title);
+        Details.Add(SelectedMovie.PolishTitle);
+        Details.Add("");
+
+        Details.Add("Informacje o filmie:");
+        Details.Add($"Rok: {SelectedMovie.Year}");
+        Details.Add($"Reżyser: {SelectedMovie.Director}");
+        Details.Add($"Scenariusz: {SelectedMovie.Scenario}");
+        Details.Add($"Gatunek: {SelectedMovie.Genre}");
+        Details.Add($"Czas trwania: {SelectedMovie.Duration}");
+        Details.Add("");
+
+        Details.Add($"Ocena: {SelectedMovie.Rating}/10");
+        Details.Add("");
+
+        Details.Add($"Główne postacie: {SelectedMovie.MainCharacters}");
+        Details.Add($"Statek: {SelectedMovie.Ship}");
+        Details.Add("");
+
+        Details.Add("Opis:");
+        Details.Add(SelectedMovie.Description);
+        Details.Add("");
+
+        Details.Add("Ciekawostka:");
+        Details.Add(SelectedMovie.FunFuct);
     }
+
 }
